@@ -24,8 +24,17 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+Route::controller(\App\Http\Controllers\FormatController::class)->group(function(){
+    Route::post('markdown/store', 'store');
+});
+
+
+Route::get('/app', function(){
+    return Inertia::render('App');
+});
+
+Route::get('/dashboard', function (\App\Models\User $user) {
+    return Inertia::render('Dashboard')->with(['posts' => Auth::user()->posts()->get()]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
