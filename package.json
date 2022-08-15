@@ -26,6 +26,7 @@
         "vite": "^2.9.11"
     },
     "dependencies": {
+        "@types/styled-components": "^5.1.26",
         "highlight.js": "^11.6.0",
         "react-highlight": "^0.14.0",
         "styled-components": "^5.3.5"

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Button from "@/Components/Button";
-import Guest from "@/Layouts/Guest";
-import Input from "@/Components/Input";
-import Label from "@/Components/Label";
-import ValidationErrors from "@/Components/ValidationErrors";
+import Button from "../../Components/Button";
+import Guest from "../../Layouts/Guest";
+import Input from "../../Components/Input";
+import Label from "../../Components/Label";
+import ValidationErrors from "../../Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
 export default function Register() {
@@ -37,7 +37,7 @@ export default function Register() {
 
     return (
         <Guest>
-            <Head title="新規登録" />
+            <Head title="Register | 新規登録" />
 
             <ValidationErrors errors={errors} />
 

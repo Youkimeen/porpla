@@ -24,9 +24,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::controller(\App\Http\Controllers\FormatController::class)->group(function(){
-    Route::post('markdown/store', 'store');
-});
 
 
 Route::get('/app', function(){
