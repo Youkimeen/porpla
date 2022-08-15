@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
 	        $table->string('name');
-	        $table->enum('gender',['man','woman','others'])->nullable();
+	        $table->enum('gender',['Man','Woman','Others'])->nullable();
 	        $table->string('email')->unique();
         	$table->timestamp('email_verified_at')->nullable();
         	$table->string('developer_avatar')->nullable();

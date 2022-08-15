@@ -18,7 +18,7 @@ export default function Welcome(props: any) {
                             </Link>
 
                             <Link href={route('register')} className="ml-4 text-sm text-gray-700 underline">
-                                Register
+                                Register!
                             </Link>
                         </>
                     )}

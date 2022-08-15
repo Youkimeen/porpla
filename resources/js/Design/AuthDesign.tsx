@@ -1,4 +1,12 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+//import { GuestAnimation } from "./Animation";
+
+const guestAnimation = keyframes`
+    0% {transform: translate(0%, 0%); transform: scale(1.0)}
+    50% {transform: translate(20%, -10%); transform: scale(1.9)}
+    0% {transform: translate(0%, 0%); transform: scale(1.0)}
+`;
+
 
 const GuestScreen = styled.div`
     position: relative;
@@ -8,12 +16,17 @@ const GuestScreen = styled.div`
     align-items: center;
     padding-top: 1.5rem;
 
+    h1 {
+      font-weight: bold;
+        font-size: x-large;
+        text-align: center;
+    }
 
     .background_color {
         position: relative;
         min-height: 100vh;
         width: 100%;
-        filter: blur(135px);
+        filter: blur(120px);
     }
 
     .deepskyblue {
@@ -22,6 +35,7 @@ const GuestScreen = styled.div`
         left: 0;
         background: deepskyblue;
         z-index: -3;
+        animation: ${guestAnimation} 5s ease 0s infinite;
     }
 
     .royalblue {
@@ -30,6 +44,7 @@ const GuestScreen = styled.div`
         left: 15rem;
         background: royalblue;
         z-index: -2;
+        animation: ${guestAnimation} 9s ease 4s infinite;
     }
 
     .lime {
@@ -38,6 +53,7 @@ const GuestScreen = styled.div`
         right: 10rem;
         background: lime;
         z-index: -1;
+        animation: ${guestAnimation} 6s ease 8s infinite;
     }
 
     @media (min-width: 640px) {
@@ -46,7 +62,7 @@ const GuestScreen = styled.div`
 
         .deepskyblue {
             width: 100vw;
-            height: 30vh;
+            height: 40vh;
         }
 
         .royalblue {
@@ -68,7 +84,7 @@ const GuestForm = styled.div`
     padding: 1rem 1.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 3px solid rgba(255, 255, 255, 0);
     border-bottom: 3px solid rgba(255, 255, 255, 0);
@@ -80,6 +96,8 @@ const GuestForm = styled.div`
         border-radius: 0.5rem;
     }
 `;
+
+
 
 
 export { GuestScreen, GuestForm } ;

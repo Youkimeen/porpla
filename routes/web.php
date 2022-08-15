@@ -31,6 +31,7 @@ Route::get('/app', function(){
 });
 
 Route::get('/dashboard', function (\App\Models\User $user) {
+
     return Inertia::render('Dashboard')->with(['posts' => Auth::user()->posts()->get()]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -6,6 +6,7 @@ import Label from "../../Components/Label";
 import ValidationErrors from "../../Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
+
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
@@ -13,6 +14,7 @@ export default function Register() {
         password: "",
         password_confirmation: "",
     });
+
 
     useEffect(() => {
         return () => {
@@ -22,7 +24,7 @@ export default function Register() {
 
     const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData(
-            event.target.name as "email" | "password" | "name",
+            event.target.name as "email" | "password" | "name" ,
             event.target.type === "checkbox"
                 ? event.target.checked + ""
                 : event.target.value
@@ -42,6 +44,7 @@ export default function Register() {
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
+                <h1>Logo comes here</h1>
                 <div>
                     <Label forInput="name" value="Name" />
 
