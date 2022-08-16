@@ -24,6 +24,6 @@ class ProgrammingLanguage extends Model
     
     // (未)developer_programming
     //public function developer_programming(){
-    //	return $this->belongsTomany(DeveloperProgramming::class);
+    //	return $this->belongsTomany(Developer::class);
     //}
 }

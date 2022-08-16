@@ -31,15 +31,9 @@ class Developer extends Model
     //	return $this->belongsToMany(DeveloperGroup::class);
     //}
     
-    
-    // (未)developer_programming
-    //public function developer_programming(){
-    //	return $this->belongsTomany(DeveloperProgramming::class);
-    //}
-    
     // programming_language (experience)
     public function programming_language(){
-    	return $this->belongsTomany(ProgrammingLanguage::class,'developer_programming','developer_id','programming_language')
+    	return $this->belongsTomany(ProgrammingLanguage::class,'developer_programming')
     				->withPivot(['experience']);
     }
     
