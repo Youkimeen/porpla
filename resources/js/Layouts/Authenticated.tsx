@@ -123,10 +123,10 @@ export default function Authenticated({ auth, children }: Props) {
                 </div>
            </AuthenticatedNavigation>
 
-            <main
-            >
-                {children}
-            </main>
+
+                <main>
+                    {children}
+                </main>
         </AuthenticatedScreen>
     );
 }
