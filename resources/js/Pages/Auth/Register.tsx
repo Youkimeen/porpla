@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import Button from "@/Components/Button";
-import Guest from "@/Layouts/Guest";
-import Input from "@/Components/Input";
-import Label from "@/Components/Label";
-import ValidationErrors from "@/Components/ValidationErrors";
+import Button from "../../Components/Button";
+import Guest from "../../Layouts/Guest";
+import Input from "../../Components/Input";
+import Label from "../../Components/Label";
+import ValidationErrors from "../../Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import {motion} from "framer-motion";
+
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -14,6 +16,7 @@ export default function Register() {
         password_confirmation: "",
     });
 
+
     useEffect(() => {
         return () => {
             reset("password", "password_confirmation");
@@ -22,7 +25,7 @@ export default function Register() {
 
     const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData(
-            event.target.name as "email" | "password" | "name",
+            event.target.name as "email" | "password" | "name" ,
             event.target.type === "checkbox"
                 ? event.target.checked + ""
                 : event.target.value
@@ -35,13 +38,15 @@ export default function Register() {
         post(route("register"));
     };
 
+
     return (
         <Guest>
-            <Head title="新規登録" />
+            <Head title="Register | 新規登録" />
 
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
+                <h1>Logo comes here</h1>
                 <div>
                     <Label forInput="name" value="Name" />
 

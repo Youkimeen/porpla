@@ -1,25 +1,47 @@
-
-
-import React from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Link } from '@inertiajs/inertia-react';
+import React, {RefObject, useRef} from 'react';
+import { GuestScreen, GuestForm, MoveColorBall } from "../Design/AuthDesign";
+import { useFollowPointer } from "../Design/useFollowPointer";
 
 interface Props {
     children: React.ReactNode;
 }
 
 export default function Guest({ children }: Props) {
-    return (
-        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <Link href="/">
-                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                </Link>
-            </div>
+    const ref = useRef(null);
+    const { x, y } = useFollowPointer(ref);
 
-            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {children}
+    console.log({x: x, y: y});
+
+
+    return (
+        <GuestScreen
+            whileHover={{ scale: 1.2 }}
+        >
+            <div className="background_color">
+                <MoveColorBall
+                ref={ref}
+                animate={{ x, y }}
+                transition={{
+                    type: "spring",
+                    damping: 3,
+                    stiffness: 20,
+                    restDelta: 0.001
+                }}
+                />
+                <div className="deepskyblue"></div>
+                <div className="royalblue"></div>
+                <div className="lime"></div>
             </div>
-        </div>
+            <GuestForm
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                  delay: 0.5,
+                  duration: 1,
+              }}
+            >
+                {children}
+            </GuestForm>
+        </GuestScreen>
     );
 }
