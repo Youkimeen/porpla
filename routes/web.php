@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\RegisterStep2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +25,19 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware('auth')->name('dashboard');
 
+Route::middleware(['auth', 'verified'])->group(function () {
 
-Route::get('/app', function(){
-    return Inertia::render('App');
+    Route::middleware('registration_completed')->group( function () {
+
+    });
+
+    Route::post('/register-step2', [RegisterStep2Controller::class, 'store'])->name('register-step2.store');
 });
+Route::get('/register-step2', [RegisterStep2Controller::class, 'create'])->name('register-step2.create');
 
-Route::get('/dashboard', function (\App\Models\User $user) {
-
-    return Inertia::render('Dashboard')->with(['posts' => Auth::user()->posts()->get()]);
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

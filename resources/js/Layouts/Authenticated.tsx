@@ -4,6 +4,7 @@ import Dropdown from "../Components/Dropdown";
 import NavLink from "../Components/NavLink";
 import ResponsiveNavLink from "../Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
+import {AuthenticatedNavigation, AuthenticatedScreen, NavigationContainer} from "../Design/AuthDesign";
 
 interface Props {
     auth: any;
@@ -15,19 +16,12 @@ export default function Authenticated({ auth, children }: Props) {
         useState(false);
 
     return (
-        <div className="min-h-screen relative">
-           <nav className="bg-white border-b border-gray-100">
+        <AuthenticatedScreen>
+           <AuthenticatedNavigation>
+                <NavigationContainer>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
-                        <div className="flex">
-                            <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto text-gray-500" />
-                                </Link>
-                            </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div className="">
                                 <NavLink
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
@@ -35,17 +29,9 @@ export default function Authenticated({ auth, children }: Props) {
                                     Dashboard
                                 </NavLink>
                             </div>
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    Dashboard
-                                </NavLink>
-                            </div>
-                        </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ml-6">
+
+                        <div className="menu">
                             <div className="ml-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
@@ -125,8 +111,7 @@ export default function Authenticated({ auth, children }: Props) {
                                 </svg>
                             </button>
                         </div>
-                    </div>
-                </div>
+                </NavigationContainer>
 
                 <div
                     className={
@@ -136,9 +121,12 @@ export default function Authenticated({ auth, children }: Props) {
                 >
 
                 </div>
-            </nav>
+           </AuthenticatedNavigation>
 
-            <main>{children}</main>
-        </div>
+            <main
+            >
+                {children}
+            </main>
+        </AuthenticatedScreen>
     );
 }

@@ -1,14 +1,9 @@
 import styled, {keyframes} from 'styled-components';
-//import { GuestAnimation } from "./Animation";
-
-const guestAnimation = keyframes`
-    0% {transform: translate(0%, 0%); transform: scale(1.0)}
-    50% {transform: translate(20%, -10%); transform: scale(1.9)}
-    0% {transform: translate(0%, 0%); transform: scale(1.0)}
-`;
+import { guestAnimation } from "./Animation";
+import { motion } from "framer-motion";
 
 
-const GuestScreen = styled.div`
+const GuestScreen = styled(motion.div)`
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -77,7 +72,14 @@ const GuestScreen = styled.div`
     }
 `;
 
-const GuestForm = styled.div`
+const MoveColorBall = styled(motion.div)`
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: blueviolet;
+`;
+
+const GuestForm = styled(motion.div)`
     position: absolute;
     width: 100%;
     margin-top: 1.5rem;
@@ -97,7 +99,61 @@ const GuestForm = styled.div`
     }
 `;
 
+const AuthenticatedScreen = styled.div`
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+`;
+
+const AuthenticatedNavigation = styled.nav`
+    min-height: 100vh;
+    width: 20%;
+    border-right: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+
+    .menu {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+    }
+
+    @media (min-width: 640px) {
+        max-width: 30%;
+    }
+`;
+
+const NavigationContainer = styled.div`
+    min-height: 100vh;
+    width: 100%;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    backdrop-filter: blur(50px);
+    background: blue;
+
+
+    .main {
+        width: 100vh;
+    }
+`;
 
 
 
-export { GuestScreen, GuestForm } ;
+
+export {
+    GuestScreen,
+    GuestForm,
+    AuthenticatedScreen,
+    AuthenticatedNavigation,
+    NavigationContainer,
+    MoveColorBall
+} ;

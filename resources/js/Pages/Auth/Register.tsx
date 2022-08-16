@@ -5,6 +5,7 @@ import Input from "../../Components/Input";
 import Label from "../../Components/Label";
 import ValidationErrors from "../../Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import {motion} from "framer-motion";
 
 
 export default function Register() {
@@ -36,6 +37,7 @@ export default function Register() {
 
         post(route("register"));
     };
+
 
     return (
         <Guest>
