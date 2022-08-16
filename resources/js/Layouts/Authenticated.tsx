@@ -20,7 +20,6 @@ export default function Authenticated({ auth, children }: Props) {
            <AuthenticatedNavigation>
                 <NavigationContainer>
 
-
                             <div className="">
                                 <NavLink
                                     href={route("dashboard")}
