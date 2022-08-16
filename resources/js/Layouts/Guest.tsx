@@ -1,12 +1,13 @@
 import React, {RefObject, useRef} from 'react';
 import { GuestScreen, GuestForm, MoveColorBall } from "../Design/AuthDesign";
 import { useFollowPointer } from "../Design/useFollowPointer";
+import {AnimatePresence, AnimatePresenceProps} from "framer-motion";
 
 interface Props {
     children: React.ReactNode;
 }
 
-export default function Guest({ children }: Props) {
+export default function Guest({ children }: Props){
     const ref = useRef(null);
     const { x, y } = useFollowPointer(ref);
 
@@ -15,7 +16,12 @@ export default function Guest({ children }: Props) {
 
     return (
         <GuestScreen
+            initial={{ scale: 0.8 }}
             whileHover={{ scale: 1.2 }}
+            transition={{
+                duration: 0.5
+            }}
+            exit={{ opacity: 0, y: 15 }}
         >
             <div className="background_color">
                 <MoveColorBall
@@ -39,6 +45,7 @@ export default function Guest({ children }: Props) {
                   delay: 0.5,
                   duration: 1,
               }}
+              exit={{ opacity: 0, y: 15 }}
             >
                 {children}
             </GuestForm>

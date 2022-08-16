@@ -21,7 +21,7 @@ const GuestScreen = styled(motion.div)`
         position: relative;
         min-height: 100vh;
         width: 100%;
-        filter: blur(120px);
+        filter: blur(100px);
     }
 
     .deepskyblue {
@@ -105,7 +105,7 @@ const AuthenticatedScreen = styled.div`
     position: relative;
 `;
 
-const AuthenticatedNavigation = styled.nav`
+const AuthenticatedNavigation = styled(motion.nav)`
     min-height: 100vh;
     width: 20%;
     border-right: 1px solid lightgray;

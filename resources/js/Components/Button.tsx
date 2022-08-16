@@ -19,6 +19,9 @@ export default function Button({ type = 'submit', className = '', processing, ch
             }
             disabled={processing}
             whileTap={{ scale: 0.9 }}
+            transition={{
+                type: "spring", stiffness: 500, damping: 50
+            }}
         >
             {children}
         </motion.button>

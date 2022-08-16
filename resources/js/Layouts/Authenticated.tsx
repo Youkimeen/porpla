@@ -17,7 +17,8 @@ export default function Authenticated({ auth, children }: Props) {
 
     return (
         <AuthenticatedScreen>
-           <AuthenticatedNavigation>
+           <AuthenticatedNavigation
+           >
                 <NavigationContainer>
 
                             <div className="">
