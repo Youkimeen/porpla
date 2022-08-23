@@ -29,6 +29,11 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware('auth')->name('dashboard');
 
+Route::get('/test', function() {
+    return Inertia::render('Welcome');
+})->name("test");
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('registration_completed')->group( function () {

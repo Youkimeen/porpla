@@ -1,7 +1,6 @@
 import React from "react";
 
 interface LoginDeveloperProps {
-    auth: {
         user: {
             id: number,
             name: string,
@@ -11,7 +10,6 @@ interface LoginDeveloperProps {
             age: number,
             created_at: Date
         }
-    }
 }
 
 interface PropsForComponents {

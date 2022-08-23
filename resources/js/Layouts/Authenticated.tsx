@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import ApplicationLogo from "../Components/ApplicationLogo";
+import React, { useState, useRef } from "react";
 import Dropdown from "../Components/Dropdown";
 import NavLink from "../Components/NavLink";
+import Button from "../Components/Button";
+import {useDimensions} from "../Design/useDimention";
 import ResponsiveNavLink from "../Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/inertia-react";
 import {AuthenticatedNavigation, AuthenticatedScreen, NavigationContainer} from "../Design/AuthDesign";
+import {MenuIconStyled} from "../Design/ComponentDesign";
+import MenuIcon from "@mui/icons-material/Menu";
+import { motion, useCycle, AnimatePresence } from 'framer-motion';
+import SideBar from "./SideBar";
+
 
 interface Props {
     auth: any;
@@ -15,30 +21,26 @@ export default function Authenticated({ auth, children }: Props) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
+
+
     return (
-        <AuthenticatedScreen>
-           <AuthenticatedNavigation
-           >
-                <NavigationContainer>
-
-                            <div className="">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    Dashboard
-                                </NavLink>
-                            </div>
-
-
+        <AuthenticatedScreen
+            initial={{opacity: 0}}
+            animate={{
+                y: [-20, 0],
+                opacity: [0, 1]
+            }}
+            exit={{scale: 2}}
+            transition={{duration: 0.2, ease: "easeOut", delay: 0.1}}
+        >
+           <AuthenticatedNavigation>
+                <SideBar>
                         <div className="menu">
-                            <div className="ml-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className=""
                                             >
                                                 {auth.user.name}
 
@@ -55,7 +57,6 @@ export default function Authenticated({ auth, children }: Props) {
                                                     />
                                                 </svg>
                                             </button>
-                                        </span>
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
@@ -68,7 +69,6 @@ export default function Authenticated({ auth, children }: Props) {
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
-                            </div>
                         </div>
 
                         <div className="-mr-2 flex items-center sm:hidden">
@@ -111,22 +111,16 @@ export default function Authenticated({ auth, children }: Props) {
                                 </svg>
                             </button>
                         </div>
-                </NavigationContainer>
-
-                <div
-                    className={
-                        (showingNavigationDropdown ? "block" : "hidden") +
-                        "sm:hidden"
-                    }
-                >
-
-                </div>
+                </SideBar>
            </AuthenticatedNavigation>
 
+
             <main
+                className="main"
             >
                 {children}
             </main>
         </AuthenticatedScreen>
     );
 }
+

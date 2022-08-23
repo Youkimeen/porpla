@@ -99,7 +99,7 @@ const GuestForm = styled(motion.div)`
     }
 `;
 
-const AuthenticatedScreen = styled.div`
+const AuthenticatedScreen = styled(motion.div)`
     min-height: 100vh;
     display: flex;
     position: relative;
@@ -116,37 +116,71 @@ const AuthenticatedNavigation = styled(motion.nav)`
     overflow: hidden;
     position: relative;
 
-
-    .menu {
-        position: absolute;
-        bottom: 15px;
-        left: 0;
-    }
-
     @media (min-width: 640px) {
         max-width: 30%;
     }
 `;
 
 const NavigationContainer = styled.div`
-    min-height: 100vh;
-    width: 100%;
-    display: block;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    backdrop-filter: blur(50px);
-    background: blue;
 
-
-    .main {
-        width: 100vh;
+    .menu {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
+    .toggle {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0px 4px rgba(0, 0, 0, 0.15);
+        font-size: 2em;
+        transition: transform 1.25s;
+    }
+
+    .menu.active .toggle {
+        transform: rotate(315deg);
+    }
+
 `;
 
+const LiStyled = styled.li<{ i: number, menu: boolean }>`
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform-origin: 150px;
+    transition: transform 0.5s;
+    transition-delay: calc(0.1s * ${({ i }) => i});
+    transform: rotate(0deg) translateX(130px);
+    ${({menu, i} ) => menu && `
+     transform: rotate(calc(360deg / 8 * ${i}))};
+    `};
+`;
 
+const AStyled = styled.a<{ i:number }>`
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ${({i}) => `
+     transform: rotate(calc(360deg / -8 * ${i}))
+     `}
+`;
 
 
 export {
@@ -154,6 +188,8 @@ export {
     GuestForm,
     AuthenticatedScreen,
     AuthenticatedNavigation,
+    MoveColorBall,
     NavigationContainer,
-    MoveColorBall
+    LiStyled,
+    AStyled
 } ;

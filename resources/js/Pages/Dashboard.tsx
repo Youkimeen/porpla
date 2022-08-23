@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Head } from "@inertiajs/inertia-react";
 import Authenticated from "../Layouts/Authenticated";
+import {MenuIconStyled} from "../Design/ComponentDesign";
 
 export default function Dashboard(props: any) {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     useEffect(() => {
         setTimeout(() => {
             setOpen(true);
@@ -26,6 +27,7 @@ export default function Dashboard(props: any) {
                         </div>
                     </div>
                 </div>
+                <MenuIconStyled />
             </Authenticated>
             : <p>Loading....</p>
         }
