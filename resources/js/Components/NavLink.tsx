@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from '@inertiajs/inertia-react';
 import {OverridableComponent} from "@mui/material/OverridableComponent";
-import {svgIconClasses, SvgIconTypeMap} from "@mui/material";
-import {LinkStyled} from "../Design/ComponentDesign";
 
 interface Props {
     href: string;

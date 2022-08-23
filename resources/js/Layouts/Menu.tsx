@@ -1,8 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import { motion, useCycle } from 'framer-motion';
-import {AStyled, LiStyled, NavigationContainer} from "../Design/AuthDesign";
-import NavLink from "../Components/NavLink";
-import MenuIcon from "@mui/icons-material/Menu";
+import {AStyled, LiStyled, NavigationContainer} from "../Design/ComponentDesign";
 import IonIcon from '@reacticons/ionicons';
 
 
@@ -11,14 +9,14 @@ interface LiCollection {
     name: string
 }
 
-const SideBar = ( {children}:ReactNode ) => {
+const Menu = () => {
     const [toggle, setToggle] = useState(false);
     const [menu, setMenu] = useState(false);
 
     const lists:LiCollection[] = [
         {id:0, name: "home-outline"},
         {id:1, name: "code-working-outline"},
-        {id:2, name: "contrast-outline"},
+        {id:2, name: "person-outline"},
         {id:3, name: "settings-outline"},
         {id:4, name: "chatbubble-outline"},
         {id:5, name: "notifications-outline"},
@@ -56,5 +54,5 @@ const SideBar = ( {children}:ReactNode ) => {
 }
 
 
-export default SideBar
+export default Menu
 

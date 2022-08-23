@@ -43,6 +43,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/register-step2', [RegisterStep2Controller::class, 'store'])->name('register-step2.store');
 });
 Route::get('/register-step2', [RegisterStep2Controller::class, 'create'])->name('register-step2.create');
-
+Route::get('/home/index', function () {
+    return inertia('Home/Index');
+})->name("home.index");;
 
 require __DIR__.'/auth.php';

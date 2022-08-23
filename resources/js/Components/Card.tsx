@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import {PropsForComponents} from "../store/type";
+import { CardStyled } from "../Design/ComponentDesign";
 
-export default function Card ({ children }: PropsForComponents) {
+interface ComponentForCard extends PropsForComponents {
+    width?: number,
+    height?: number
+}
 
-
+export default function Card ({ width = 400, height = 400, header, children }: ComponentForCard) {
     return (
-        <div className="w-1/3 px-5 ">
+        <CardStyled
+            width={width}
+            height={height}
+        >
+            {header && <div className="header">{header}</div>}
 　　　　　　　　{ children }
-        </div>
+        </CardStyled>
     );
 }
