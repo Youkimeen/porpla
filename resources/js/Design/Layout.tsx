@@ -21,13 +21,20 @@ const Option = styled(Link)`
     margin: 20px 0;
     color: white;
     align-items: center;
+    transition: transform 1s;
 
     &:hover {
         background-color: white;
         border-bottom-left-radius: 28px;
         border-top-left-radius: 28px;
         color: #2563eb;
+
+        .icon {
+            transform: rotate(360deg);
+        }
     }
+
+
 
 
     &:hover::before {

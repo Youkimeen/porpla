@@ -33,9 +33,7 @@ export default function Sidebar () {
                        href={route(list.route)}
                        method={list.method}
                     >
-                        <IonIconStyled
-                            name={list.name}
-                            />
+                        <IonIconStyled name={list.name} className="icon"/>
                         <p>{list.title}</p>
                     </Option>
                 ))}
