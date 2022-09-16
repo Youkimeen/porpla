@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const HomeHeaderWrapper = styled.div`
-    position: relative;
     width: 100%;
     height: auto;
     padding: 10px;

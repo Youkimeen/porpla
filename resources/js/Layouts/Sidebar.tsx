@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import IonIcon from '@reacticons/ionicons'
+import Menu from '../Layouts/Menu';
 import {SidebarContainer, Option, OptionContainer, IonIconStyled} from "../Design/Layout";
 
 interface LiCollection {
