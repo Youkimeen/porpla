@@ -16,8 +16,8 @@ export default function Sidebar () {
 
     const lists:LiCollection[] = [
         {id:0, name: "home-outline", title: "Home", route: "home.index", method: "get"},
-        {id:1, name: "code-working-outline", title: "Code", route: "logout", method: "post"},
-        {id:2, name: "person-outline", title: "Person", route: "logout", method: "post"},
+        {id:1, name: "code-working-outline", title: "Timeline", route: "home.timeline", method: "get"},
+        {id:2, name: "person-outline", title: "Person", route: "home.person", method: "get"},
         {id:3, name: "settings-outline", title: "Setting", route: "logout", method: "post"},
         {id:4, name: "chatbubble-outline", title: "Chat", route: "logout", method: "post"},
         {id:5, name: "notifications-outline", title: "Notification", route: "logout", method: "post"},

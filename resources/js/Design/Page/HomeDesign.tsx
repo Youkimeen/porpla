@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const HomeHeaderWrapper = styled.div`
     width: 100%;
+    min-width: 80vw;
     height: auto;
     padding: 10px;
     border: 1px solid lightgray;

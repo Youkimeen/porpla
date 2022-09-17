@@ -73,6 +73,7 @@ const CardStyled = styled.div<{ width: number, height: number }>`
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: scroll;
 
     .header {
         font-size: large;
@@ -80,7 +81,8 @@ const CardStyled = styled.div<{ width: number, height: number }>`
         padding-top: 10px;
         padding-bottom: 10px;
         border-bottom: 1px solid lightgray;
-
+        width: ${({width}) => width}px;
+        background: #fff;
     }
 `
 

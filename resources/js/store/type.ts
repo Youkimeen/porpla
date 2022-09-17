@@ -14,7 +14,7 @@ interface LoginDeveloperProps {
 
 interface PropsForComponents {
     auth?: any;
-    header?: React.ReactNode;
+    header: React.ReactNode;
     children: React.ReactNode;
 }
 
