@@ -70,7 +70,6 @@ const AStyled = styled.a<{ i:number }>`
 const CardStyled = styled.div<{ width: number, height: number }>`
     width: ${({width}) => width}px;
     height: ${({height}) => height}px;
-    text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     overflow: scroll;
@@ -83,6 +82,7 @@ const CardStyled = styled.div<{ width: number, height: number }>`
         border-bottom: 1px solid lightgray;
         width: ${({width}) => width}px;
         background: #fff;
+        text-align: center;
     }
 `
 

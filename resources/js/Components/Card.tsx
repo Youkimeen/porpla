@@ -16,8 +16,9 @@ export default function Card ({ width = 400, height = 400, header, children, Ico
             width={width}
             height={height}
         >
-        {Icon ? <div className="header"><Icon /> {header}</div> : <div>{ header }</div>}
+        {Icon ? <div className="header"><Icon /> { header }</div> : <div>{ header }</div>}
 　　　　　　　<div className="children">
+
             { children }
             </div>　
 

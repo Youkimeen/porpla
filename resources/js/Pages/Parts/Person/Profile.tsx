@@ -4,14 +4,14 @@ import {LoginDeveloperProps} from "../../../store/type";
 import {Edit, AccessTime} from '@mui/icons-material';
 import {ModalContext} from "../../Home/Person";
 
-interface Reviewer {
+export interface Reviewer {
     name: String,
     review: String,
     date: String,
     avatar: string
 }
 
-const reviewers: Reviewer[] = [
+export const reviewers: Reviewer[] = [
     {name: "Take", review: "Hi! I'M a test for dummy text. It's really weird to speak here for keeping right conversation you know? we'd better copy and paste some sentences\n" +
             "fetched from somewhere, why ...", date: "2022/02/20", avatar: "https://i.pravatar.cc/150?u=a042581f4e29006704d"},
     {name: "Mei", review: "  Hi! I'M a test for dummy text. It's really weird to speak here for keeping right conversation you know? we'd better copy and paste some sentences\n" +

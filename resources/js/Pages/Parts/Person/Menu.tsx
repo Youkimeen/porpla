@@ -37,7 +37,9 @@ export default function Menu() {
                 height={100}
                 header={"コミット率"}
             >
-                <h1>100%</h1>
+                <div className="text-center">
+                    <h1>100%</h1>
+                </div>
             </Card>
         </MenuWrapper>
     )

@@ -99,14 +99,20 @@ const MenuWrapper = styled.div`
 const IconWrapper = styled.div`
     width: 100%;
     height: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
     .icon_with_notification {
         display: inline-block;
         position: relative;
+        justify-content: center;
+        align-items: center;
     }
 
     .icon {
         font-size: xx-large;
+        align-items: center;
     }
 
     .number_of_notification {
@@ -122,6 +128,7 @@ const IconWrapper = styled.div`
         align-items: center;
         font-size: small;
         color: #fff;
+        text-align: center;
     }
 `;
 
