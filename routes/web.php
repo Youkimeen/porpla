@@ -52,5 +52,8 @@ Route::get('/home/person', function () {
 Route::get('/home/timeline', function () {
     return inertia('Home/Timeline');
 })->name("home.timeline");
+Route::get('/home/group', function () {
+    return inertia('Home/Chat');
+})->name("home.chat");
 
 require __DIR__.'/auth.php';

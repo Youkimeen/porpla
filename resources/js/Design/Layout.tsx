@@ -14,14 +14,46 @@ const OptionContainer = styled.div`
     margin-top: 55px;
 `;
 
-const Option = styled(Link)`
+const Option = styled(Link)<{currentUrl: Boolean}>`
     position: relative;
     width: 100%;
     display: flex;
     margin: 20px 0;
-    color: white;
+    color: ${({currentUrl}) => currentUrl ? "#2563eb": "white"};
     align-items: center;
     transition: transform 1s;
+    background-color: ${({currentUrl}) => currentUrl ? "white": "transparent"};
+    border-bottom-left-radius: ${({currentUrl}) => currentUrl ? "28px" : ""};
+    border-top-left-radius: ${({currentUrl}) => currentUrl ? "28px": ""};
+
+    &::before {
+      ${({currentUrl}) => currentUrl && `
+         content: '';
+         position: absolute;
+         right: 0;
+         top: -50px;
+         width: 50px;
+         height: 50px;
+         background:transparent;
+         border-radius: 50%;
+         box-shadow: 35px 35px 0 10px white;
+      `}
+    }
+
+    &::after {
+      ${({currentUrl}) => currentUrl && `
+         content: '';
+         position: absolute;
+         right: 0;
+         bottom: -50px;
+         width: 50px;
+         height: 50px;
+         background:transparent;
+         border-radius: 50%;
+         box-shadow: 35px -35px 0 10px white;
+        `}
+    }
+
 
     &:hover {
         background-color: white;
@@ -33,9 +65,6 @@ const Option = styled(Link)`
             transform: rotate(360deg);
         }
     }
-
-
-
 
     &:hover::before {
         content: '';
