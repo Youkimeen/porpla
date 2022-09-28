@@ -1,12 +1,27 @@
 import React, { useState } from "react";
 import {PropsForComponents} from "../store/type";
+import { CardStyled } from "../Design/ComponentDesign";
+import {SvgIconProps, SvgIconTypeMap} from "@mui/material/SvgIcon";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 
-export default function Card ({ children }: PropsForComponents) {
+interface ComponentForCard extends PropsForComponents {
+    width?: number,
+    height?: number,
+    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string}
+    }
 
-
+export default function Card ({ width = 400, height = 400, header, children, Icon }: ComponentForCard) {
     return (
-        <div className="w-1/3 px-5 ">
-　　　　　　　　{ children }
-        </div>
+        <CardStyled
+            width={width}
+            height={height}
+        >
+        {Icon ? <div className="header"><Icon /> { header }</div> : <div>{ header }</div>}
+　　　　　　　<div className="children">
+
+            { children }
+            </div>　
+
+        </CardStyled>
     );
 }

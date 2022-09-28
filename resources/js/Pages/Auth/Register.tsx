@@ -114,6 +114,7 @@ export default function Register() {
                         ログインはこちら
                     </Link>
 
+
                     <Button
                         className="ml-4 bg-gray-900"
                         processing={processing}

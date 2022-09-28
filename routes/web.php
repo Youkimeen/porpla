@@ -29,6 +29,11 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware('auth')->name('dashboard');
 
+Route::get('/test', function() {
+    return Inertia::render('Welcome');
+})->name("test");
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('registration_completed')->group( function () {
@@ -38,6 +43,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/register-step2', [RegisterStep2Controller::class, 'store'])->name('register-step2.store');
 });
 Route::get('/register-step2', [RegisterStep2Controller::class, 'create'])->name('register-step2.create');
-
+Route::get('/home/index', function () {
+    return inertia('Home/Index');
+})->name("home.index");
+Route::get('/home/person', function () {
+    return inertia('Home/Person');
+})->name("home.person");
+Route::get('/home/timeline', function () {
+    return inertia('Home/Timeline');
+})->name("home.timeline");
+Route::get('/home/group', function () {
+    return inertia('Home/Chat');
+})->name("home.chat");
 
 require __DIR__.'/auth.php';

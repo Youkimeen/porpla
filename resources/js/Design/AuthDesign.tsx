@@ -21,7 +21,7 @@ const GuestScreen = styled(motion.div)`
         position: relative;
         min-height: 100vh;
         width: 100%;
-        filter: blur(120px);
+        filter: blur(100px);
     }
 
     .deepskyblue {
@@ -99,54 +99,37 @@ const GuestForm = styled(motion.div)`
     }
 `;
 
-const AuthenticatedScreen = styled.div`
-    min-height: 100vh;
+const AuthenticatedScreen = styled(motion.div)`
+    max-height: 100vh;
+    position:fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
     display: flex;
-    position: relative;
+    background: linear-gradient(to bottom, #006DB0, #70C8FF);
+
+    .main {
+        max-width: 80%;
+        height: 100vh;
+        background: white;
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
 `;
 
-const AuthenticatedNavigation = styled.nav`
+const AuthenticatedNavigation = styled(motion.nav)`
     min-height: 100vh;
     width: 20%;
-    border-right: 1px solid lightgray;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
-
-
-    .menu {
-        position: absolute;
-        bottom: 15px;
-        left: 0;
-    }
+    margin-top: 10px;
 
     @media (min-width: 640px) {
         max-width: 30%;
     }
 `;
-
-const NavigationContainer = styled.div`
-    min-height: 100vh;
-    width: 100%;
-    display: block;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-    backdrop-filter: blur(50px);
-    background: blue;
-
-
-    .main {
-        width: 100vh;
-    }
-`;
-
-
 
 
 export {
@@ -154,6 +137,5 @@ export {
     GuestForm,
     AuthenticatedScreen,
     AuthenticatedNavigation,
-    NavigationContainer,
     MoveColorBall
 } ;
